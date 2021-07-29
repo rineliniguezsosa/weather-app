@@ -1,8 +1,8 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles';
 import cloud from '../Recursos/HeavyCloud.png'
 import suncloud from '../Recursos/Shower.png'
 
-export const theme = createMuiTheme({
+export const theme = createTheme({
     typography: {
       fontFamily: [
         'Raleway',
@@ -82,6 +82,11 @@ export const useStyles = () =>({
         left:"165px",
         top: "768px",
         color:"#A09FB1",
+    },
+    draw:{
+        width:"459px",
+        backgroundColor:"#1E213A",
+        height:"100%",
     },
     
     

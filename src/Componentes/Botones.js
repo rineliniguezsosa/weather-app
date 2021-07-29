@@ -1,23 +1,37 @@
-import React,{ useState } from 'react'
+import React,{ useState,useEffect } from 'react'
 import { ThemeProvider, withStyles } from '@material-ui/core/styles';
+import Box from '@material-ui/core/Box'
+import axios from 'axios';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Drawer from '@material-ui/core/Drawer'
 import GpsFixedIcon from '@material-ui/icons/GpsFixed';
 import { useStyles,theme } from '../Stilo/Style';
 
+
+
 function Botones(props) {
     const [drawer, setDrawer] = useState(false);
+    const [locacion, setLocacion] = useState("mexico")
+    const [datos, setDatos] = useState([])
     const {classes} = props
-
+    let id = "4c65bfb00a7e250d201ef290bd3f4efa";
+     
     const toggleDrawer = (open) => (e)=>{
         setDrawer(open)
     }
-
+     
+    useEffect(() => {
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${locacion}&appid=${id}`)
+        .then(response=>{
+            setDatos(response.data)
+        })
+    }, [locacion,id])
+    
     const list = () => (
-        <div style={{width:"459px",backgroundColor:"#1E213A"}} >
+        <Box className={classes.draw} >
           
-        </div>
+        </Box>
     )
     return (
         <ThemeProvider theme={theme}>
@@ -38,6 +52,7 @@ function Botones(props) {
             {list()}
             </Drawer>
         </ThemeProvider>
+        
     )
 }
 

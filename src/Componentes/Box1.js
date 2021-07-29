@@ -1,27 +1,67 @@
-import React from 'react';
+import React,{ useState,useEffect } from 'react'
 import Box from '@material-ui/core/Box';
+import Avatar from '@material-ui/core/Avatar';
+import Drawer from '@material-ui/core/Drawer'
+import GpsFixedIcon from '@material-ui/icons/GpsFixed';
+import Boton from './Boton'
 import { ThemeProvider, withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Botones from './Botones'
+import Clouds from './Clouds'
 import { useStyles,theme } from '../Stilo/Style';
+import axios from 'axios';
+
 
 function Box1(props) {
     const {classes} = props
-    return (
-        <ThemeProvider theme={theme}>
-        <Box className={classes.box1}>
-            <Botones></Botones>
-            <figure  className={classes.cloud} alt=""></figure>
-            <figure  className={classes.cloud2} alt=""></figure>
-            <figure  className={classes.suncloud} alt=""></figure>
-            <Typography style={{fontWeight:500,fontSize:"144px"}} className={classes.grados}>
-                15c
-            </Typography> 
-            <Typography style={{fontWeight:600,fontSize:"36px"}} className={classes.clima}>
-                Shower
-            </Typography>
+    const [drawer,setDrawer] = useState(false);
+    const [locacion] = useState("mexico")
+    const [info, setInfo] = useState([])
+    let id = "4c65bfb00a7e250d201ef290bd3f4efa";
+    
+    const toggleDrawer = (open) => (e)=>{
+        setDrawer(open)
+    }
+     
+    useEffect(() => {
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${locacion}&appid=${id}`)
+        .then(response=>{
+            setInfo(response.data)
+            console.log(response.data);
+        })
+    }, [locacion,id])
+    
+    const list = () => (
+        <Box className={classes.draw} >
+          
         </Box>
-        </ThemeProvider>
+    )
+
+    
+    return (
+        <Box className={classes.box1}>
+            <ThemeProvider theme={theme}>
+            <Boton onClick={toggleDrawer(true)}></Boton>
+            <Avatar className={classes.icon}>
+                <GpsFixedIcon></GpsFixedIcon>
+            </Avatar>
+            <Drawer
+            open={drawer}
+            anchor={"left"}
+            onClose={toggleDrawer(false)}
+            >
+            {list()}
+            </Drawer>
+
+            <Clouds></Clouds>
+
+            { info.map(item=>(
+                <span>
+                    {item.id}
+                </span>
+                ))
+            }
+
+            </ThemeProvider>
+        </Box>
     )
 }
 
