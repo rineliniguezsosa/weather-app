@@ -15,7 +15,7 @@ export const useStyles = () =>({
     main:{
         display:"flex",
         flexDirection:"row",
-        backgroundColor:"#100E1D",
+        // backgroundColor:"#100E1D",
     },
     box1:{
         width:"459px",
@@ -88,6 +88,9 @@ export const useStyles = () =>({
         backgroundColor:"#1E213A",
         height:"100%",
     },
+    locacion:{
+        position:"absolute",
+    }
     
     
 })

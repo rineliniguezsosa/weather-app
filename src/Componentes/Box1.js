@@ -1,45 +1,45 @@
-import React,{ useState,useEffect } from 'react'
-import Box from '@material-ui/core/Box';
+import React, { useContext, useState } from 'react'
 import Avatar from '@material-ui/core/Avatar';
 import Drawer from '@material-ui/core/Drawer'
 import GpsFixedIcon from '@material-ui/icons/GpsFixed';
-import Boton from './Boton'
+import Typography from '@material-ui/core/Typography';
 import { ThemeProvider, withStyles } from '@material-ui/core/styles';
-import Clouds from './Clouds'
 import { useStyles,theme } from '../Stilo/Style';
-import axios from 'axios';
+import Box2 from './Box2';
+import { DatoContext } from '../App'
+import Clouds from './Clouds'
 
 
+
+//url = https://api.openweathermap.org/data/2.5/forecast?q=mexico&cnt=5&units=metric&appid=4c65bfb00a7e250d201ef290bd3f4efa
+//https://api.openweathermap.org/data/2.5/forecast?q=mexico&cnt=5&units=metric&lang=sp&appid=4c65bfb00a7e250d201ef290bd3f4efa
 function Box1(props) {
-    const {classes} = props
-    const [drawer,setDrawer] = useState(false);
-    const [locacion] = useState("mexico")
-    const [info, setInfo] = useState([])
-    let id = "4c65bfb00a7e250d201ef290bd3f4efa";
+    
+    const [drawer, setDrawer] = useState(false)
+    
+    
     
     const toggleDrawer = (open) => (e)=>{
-        setDrawer(open)
+        setDrawer( open );
     }
-     
-    useEffect(() => {
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${locacion}&appid=${id}`)
-        .then(response=>{
-            setInfo(response.data)
-            console.log(response.data);
-        })
-    }, [locacion,id])
-    
     const list = () => (
-        <Box className={classes.draw} >
+        <div className={classes.draw} >
           
-        </Box>
+        </div>
     )
-
-    
+    const {classes,locacion,setLocacion} = props
+    const nombre = useContext(DatoContext)
     return (
-        <Box className={classes.box1}>
+        <div>
+        <div className={classes.box1}>
             <ThemeProvider theme={theme}>
-            <Boton onClick={toggleDrawer(true)}></Boton>
+            {/* <Boton onClick={toggleDrawer(true)}></Boton> */}
+            <button onClick={toggleDrawer(true)}  className={classes.btn}>
+                <Typography component="span" style={{fontWeight:500,fontSize:"16px"}} >
+                    Search for places
+                </Typography>
+            </button>
+
             <Avatar className={classes.icon}>
                 <GpsFixedIcon></GpsFixedIcon>
             </Avatar>
@@ -50,19 +50,15 @@ function Box1(props) {
             >
             {list()}
             </Drawer>
-
             <Clouds></Clouds>
-
-            { info.map(item=>(
-                <span>
-                    {item.id}
-                </span>
-                ))
-            }
-
+            <span style={{color:"#fff"}}>{nombre}</span>
+            <div className={classes.locacion}><Typography>{locacion}</Typography></div>
+            <span>{()=>setLocacion("london")}</span>
             </ThemeProvider>
-        </Box>
+        </div>
+        <Box2></Box2>
+        </div>
     )
 }
 
-export default withStyles(useStyles)(Box1);
+export default withStyles(useStyles)(Box1)
