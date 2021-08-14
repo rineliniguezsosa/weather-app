@@ -15,7 +15,6 @@ export const useStyles = () =>({
     main:{
         display:"flex",
         flexDirection:"row",
-       
         // backgroundColor:"#100E1D",
     },
     box1:{
@@ -58,7 +57,7 @@ export const useStyles = () =>({
         position: "absolute",
         width:"203px",
         height:"150px",
-        left:"240px",
+        left:"220px",
         top: "75px",
     },
     suncloud:{
@@ -101,7 +100,7 @@ export const useStyles = () =>({
         top: "950px",
     },
     box2:{
-        width:"auto",
+        width:"981px",
         height:"1023px",
         backgroundColor:"#100E1D",
     },
@@ -157,6 +156,45 @@ export const useStyles = () =>({
         lineHeight: "21px",
         color: "#88869D",
     },
+    celsius:{
+        position: "absolute",
+        background: "#E7E7EB",
+        width: "40px",
+        height: "40px",
+        left: "1223px",
+        top: "42px",
+    },
+    gradosc:{
+        fontStyle: "normal",
+        fontWeight: "bold",
+        fontSize: "18px",
+        lineHeight:"21px",
+        color: "#110E3C",
+    },
+    farenheit:{
+        position: "absolute",
+        background: "#585676",
+        width: "40px",
+        height: "40px",
+        left: "1275px",
+        top: "42px",  
+    },
+    gradosf:{
+        fontStyle: "normal",
+        fontWeight: "bold",
+        fontSize: "18px",
+        lineHeight:"21px",
+        color: "#E7E7EB",
+    },
+    close:{
+        position: "absolute",
+        left: "22.53%",
+        right: "22.53%",
+        top: "22.53%",
+        bottom: "22.53%",
+        color: "#E7E7EB",
+    },
+    
     
     
 })
