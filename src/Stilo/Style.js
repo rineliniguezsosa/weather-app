@@ -15,12 +15,14 @@ export const useStyles = () =>({
     main:{
         display:"flex",
         flexDirection:"row",
+       
         // backgroundColor:"#100E1D",
     },
     box1:{
         width:"459px",
         height:"1023px",
-        // border:"1px green solid",
+        justifyContent:"center",
+        alignItems:"center",
         backgroundColor:"#1E213A",
     },
     btn:{
@@ -90,7 +92,71 @@ export const useStyles = () =>({
     },
     locacion:{
         position:"absolute",
-    }
+        fontStyle: "normal",
+        fontWeight: 600,
+        color: "#88869D",
+        fontSize: "18px",
+        lineHeight: "21px",
+        left: "200px",
+        top: "950px",
+    },
+    box2:{
+        width:"auto",
+        height:"1023px",
+        backgroundColor:"#100E1D",
+    },
+    // boxtemp:{
+    //     width: "192px",
+    //     height: "169px",
+    //     left: "124px",
+    //     top: "512px",
+    //     position: "absolute",
+    //     border:"1px red solid",
+    // },
+    temperatura:{
+        fontWeight: 500,
+        left: "124px",
+        top: "512px",
+        position: "absolute",
+        color: "#E7E7EB",
+        fontStyle:"normal",
+        lineHeight:"169px",
+        fontSize: "70px", 
+    },
+    boxdescripcion:{
+        position: "absolute",
+        width: "129px",
+        height: "42px",
+        left: "165px",
+        top: "768px",
+    },
+    descripcion:{
+        fontWeight:600,
+        fontSize: "36px",
+        lineHeight: "42px",
+        textAlign:"center",
+        color: "#A09FB1",
+    },
+    today:{
+        position: "absolute",
+        fontStyle: "normal",
+        fontWeight: 500,
+        fontSize: "18px",
+        lineHeight: "21px",
+        color: "#88869D",
+        left: "148px",
+        top: "897px",
+    },
+    date:{
+        position: "absolute",
+        left:"230px",
+        top:"897px",
+        fontStyle: "normal",
+        fontWeight: 500,
+        fontSize: "18px",
+        lineHeight: "21px",
+        color: "#88869D",
+    },
     
     
 })

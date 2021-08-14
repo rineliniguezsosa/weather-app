@@ -27,7 +27,7 @@ function Box1(props) {
           
         </div>
     )
-    const {classes,locacion,setLocacion} = props
+    const {classes,locacion} = props
     const nombre = useContext(DatoContext)
     return (
         <div>
@@ -53,7 +53,7 @@ function Box1(props) {
             <Clouds></Clouds>
             <span style={{color:"#fff"}}>{nombre}</span>
             <div className={classes.locacion}><Typography>{locacion}</Typography></div>
-            <span>{()=>setLocacion("london")}</span>
+           
             </ThemeProvider>
         </div>
         <Box2></Box2>
