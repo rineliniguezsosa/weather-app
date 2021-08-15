@@ -85,9 +85,9 @@ export const useStyles = () =>({
         color:"#A09FB1",
     },
     draw:{
-        width:"459px",
+        width:"430px",
         backgroundColor:"#1E213A",
-        height:"100%",
+        height:"1023px",
     },
     locacion:{
         position:"absolute",
@@ -188,13 +188,18 @@ export const useStyles = () =>({
     },
     close:{
         position: "absolute",
-        left: "22.53%",
-        right: "22.53%",
-        top: "22.53%",
-        bottom: "22.53%",
+        left: "373px",
+        top: "32px",
         color: "#E7E7EB",
     },
-    
+    search:{
+        border: "1px solid #E7E7EB",
+        position: "absolute",
+        width: "268px",
+        height: "48px",
+        left: "47px",
+        top: "82px",
+    },
     
     
 })

@@ -1,11 +1,15 @@
 import React, { useState,useEffect } from 'react';
 import GpsFixedIcon from '@material-ui/icons/GpsFixed';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import SearchIcon from '@material-ui/icons/Search';
 import CloseIcon from '@material-ui/icons/Close';
 import Avatar from '@material-ui/core/Avatar';
 import Drawer from '@material-ui/core/Drawer';
 import Clouds from './Componentes/Clouds';
 import { ThemeProvider,withStyles }from '@material-ui/core/styles'
+import Input from '@material-ui/core/Input';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 import Typography from '@material-ui/core/Typography';
 import { useStyles,theme } from './Stilo/Style'
 import axios from 'axios';
@@ -28,6 +32,14 @@ function App(props) {
   const list = () => (
         <div className={classes.draw} >
           <CloseIcon className={classes.close}/>
+          <form>
+          <Input className={classes.search} placeholder="Search Location" startAdornment={
+            <InputAdornment position="start">
+              <SearchIcon style={{color:"#616475"}} />
+            </InputAdornment>
+          }
+        />
+          </form>
         </div>
   )
   const id = "4c65bfb00a7e250d201ef290bd3f4efa";
