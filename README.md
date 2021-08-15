@@ -2,4 +2,4 @@
 
 ## React.js,Material ui
 
-<img src="./src/imagene/weatherapp.png" alt="weather aplicacion">
+<img src="./src/imagen/weatherapp.png" alt="weather aplicacion">
