@@ -200,6 +200,22 @@ export const useStyles = () =>({
         left: "47px",
         top: "82px",
     },
+    contforecast:{
+        border:"1px red solid", 
+        height:"177px",
+        width:"50%",
+        display:"flex",
+        flexDirection:"row",
+        justifyContent:"space-around",
+        position:"absolute",
+        left: "613px",
+        top: "148px",
+    },
+    boxforecast:{
+        width: "120px",
+        height: "177px",
+        background:"#1E213A",
+    },
     
     
 })

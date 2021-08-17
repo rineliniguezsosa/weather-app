@@ -24,6 +24,7 @@ function App(props) {
   const [unidad, setunidad] = useState("metric")
   const [forecast, setForecast] = useState([])
   const [drawer, setDrawer] = useState(false)
+  console.log(forecast)
   
    
   const toggleDrawer = (open) => (e)=>{
@@ -62,7 +63,7 @@ function App(props) {
     })
   }, [locacion,id,unidad])
   
-  // let date2 = new Date()
+  let date2 = new Date()
   // let nn = date2.getMonth(fecha);
   // console.log(nn.toString())
   
@@ -118,6 +119,15 @@ function App(props) {
           <Avatar className={classes.farenheit}>
             <Typography className={classes.gradosf} theme={theme}>°F</Typography>
           </Avatar>
+          <div className={classes.contforecast}>
+            {forecast.map(item=>(
+              <div className={classes.boxforecast} key={item.dt}>
+                 <Typography className={classes.fechas} theme={theme}>{item.dt}</Typography>
+                 <Typography className={classes.fechas} theme={theme}>{item.main.temp_min}</Typography>
+                 <Typography className={classes.fechas} theme={theme}>{item.main.temp_max}</Typography>
+              </div>
+            ))}
+          </div>
           </ThemeProvider>
         </div>
     </div>
